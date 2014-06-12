@@ -7,15 +7,14 @@
 	<% @request = Net::HTTP.get(URI.parse("http://www.jimmyjazz.com/request/cart/add/#{@i}/1")) %>
 	<% if @request %>
 		<% if @result=JSON.parse(@request)["success"] == 1 %>
-			<% if @result=JSON.parse(@request)["totals"]["subtotal"].to_s == "180.00" %>
-				<a href="http://www.jimmyjazz.com/request/cart/add/<%= @i %>/1"><%= @i %>:  <%= @result=JSON.parse(@request)["totals"]["subtotal"] %></a>
+			<% if @result=JSON.parse(@request)["totals"]["subtotal"].to_s == "150.00" %>
+				<a href="http://www.jimmyjazz.com/request/cart/add/<%= @i %>/1"><%= @i %>:  <%= @result=JSON.parse(@request)["totals"]["subtotal"] %></a><br />
 			<% end %>
 		<% else %>
-			<%= @i %>:  nothing
+			<%= @i %>:  nothing	<br />
 		<% end %>
 	<% end %>
 	<% sleep(1)%>
-	<br />
 	<% rescue %>
 	<% end %>
 	
