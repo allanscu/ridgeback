@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: dl6pfp4emkrho
-  username: vonvyxjagvwawl
-  password: htY7doQnC7wd_adkXjHTew2iTD
+  database: ridgeback_production
+  username: ridgeback
+  password: <%= ENV['RIDGEBACK_DATABASE_PASSWORD'] %>
