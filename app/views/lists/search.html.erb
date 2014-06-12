@@ -9,6 +9,8 @@
 		<% if @result=JSON.parse(@request)["success"] == 1 %>
 			<% if @result=JSON.parse(@request)["totals"]["subtotal"].to_s == "150.00" %>
 				<a href="http://www.jimmyjazz.com/request/cart/add/<%= @i %>/1"><%= @i %>:  <%= @result=JSON.parse(@request)["totals"]["subtotal"] %></a><br />
+				<% @record = List.new(:merchandise_amount => @result.to_f, :url => "http://www.jimmyjazz.com/request/cart/add/#{@i}/1", :code => @i) %>
+				<% @record.save %>
 			<% end %>
 		<% else %>
 			<%= @i %>:  nothing	<br />
