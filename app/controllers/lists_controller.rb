@@ -1,4 +1,10 @@
 class ListsController < ApplicationController
+  require 'json'
+  require 'net/http'
+  require 'httparty'
+  require 'rubygems'
+  require 'nokogiri'
+  require 'open-uri'
   before_action :set_list, only: [:show, :edit, :update, :destroy]
 
   # GET /lists
@@ -59,6 +65,12 @@ class ListsController < ApplicationController
       format.html { redirect_to lists_url, notice: 'List was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+  
+  # Search through website
+  def search
+    @start_code = params[:start_code]
+    @end_code = params[:end_code]
   end
 
   private

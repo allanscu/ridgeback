@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  match 'lists/search/:start_code/:end_code', to: 'lists#search', via: 'get'
   resources :lists
 
   # The priority is based upon order of creation: first created -> highest priority.
