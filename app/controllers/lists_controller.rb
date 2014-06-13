@@ -1,9 +1,7 @@
 class ListsController < ApplicationController
   require 'json'
   require 'net/http'
-  require 'httparty'
   require 'rubygems'
-  require 'nokogiri'
   require 'open-uri'
   before_action :set_list, only: [:show, :edit, :update, :destroy]
 
